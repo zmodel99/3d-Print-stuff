@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Party Pack - Jackbox Inspired</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="app-header">
+      <div>
+        <h1>Party Pack TV</h1>
+        <p class="tagline">Bring-your-own-device party games inspired by Jackbox.</p>
+      </div>
+      <div class="room-display">
+        <span>Room Code</span>
+        <strong id="room-code">----</strong>
+      </div>
+      <button id="reset-session" class="ghost-btn" type="button">Reset Session</button>
+    </header>
+
+    <main class="layout">
+      <section class="panel lobby" aria-labelledby="lobby-title">
+        <div class="panel-header">
+          <h2 id="lobby-title">Lobby</h2>
+          <p>Share the room code with your friends and add them as players.</p>
+        </div>
+        <form id="join-form" class="inline-form">
+          <label for="player-name" class="sr-only">Player name</label>
+          <input
+            id="player-name"
+            name="player-name"
+            type="text"
+            placeholder="Enter player name"
+            maxlength="15"
+            required
+          />
+          <button type="submit">Join Game</button>
+        </form>
+        <ul id="player-list" class="player-list"></ul>
+      </section>
+
+      <section class="panel game-hub" aria-labelledby="game-hub-title">
+        <div class="panel-header">
+          <h2 id="game-hub-title">Choose a Game</h2>
+          <p>Pick a game to drop into the party screen.</p>
+        </div>
+        <div class="game-grid">
+          <article class="game-card" data-game="trivia">
+            <h3>Trivia Blitz</h3>
+            <p>Rapid-fire trivia with surprising facts. Correct answers earn 100 points.</p>
+            <button type="button" class="select-game">Load Game</button>
+          </article>
+          <article class="game-card" data-game="wordforge">
+            <h3>Word Forge</h3>
+            <p>Use the letter forge to craft the longest valid word. Every letter adds points.</p>
+            <button type="button" class="select-game">Load Game</button>
+          </article>
+          <article class="game-card" data-game="story">
+            <h3>Story Chain</h3>
+            <p>Co-create a ridiculous story. Each sentence earns style points from the host.</p>
+            <button type="button" class="select-game">Load Game</button>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel stage" aria-live="polite" aria-labelledby="stage-title">
+        <div class="panel-header">
+          <h2 id="stage-title">Party Screen</h2>
+          <p id="stage-subtitle">Select a game to get started.</p>
+        </div>
+        <div id="game-stage" class="stage-body">
+          <p class="placeholder">
+            Load a game from the hub to see the live prompts, timers, and controls.
+          </p>
+        </div>
+      </section>
+
+      <aside class="panel scoreboard" aria-labelledby="scoreboard-title">
+        <div class="panel-header">
+          <h2 id="scoreboard-title">Scoreboard</h2>
+          <p>Scores update automatically as you host each game.</p>
+        </div>
+        <ul id="score-list"></ul>
+      </aside>
+
+      <section class="panel event-log" aria-live="polite" aria-labelledby="log-title">
+        <div class="panel-header">
+          <h2 id="log-title">Event Log</h2>
+          <p>Keep track of what just happened.</p>
+        </div>
+        <ol id="log-entries"></ol>
+      </section>
+    </main>
+
+    <footer class="app-footer">
+      <p>
+        This is a fan-made Jackbox-inspired experience built for code challenges. Everyone
+        still plays on a single device, but the flow mimics the lobby, score, and party screen
+        setup.
+      </p>
+    </footer>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
